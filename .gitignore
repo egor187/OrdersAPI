@@ -1,0 +1,69 @@
+### Project files
+_media/*
+_files/*
+utils/GeoLiteCity.dat
+
+*.sw[po]
+*~
+
+/.vagrant
+
+/docs/build
+
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# assets
+/static/assets/
+/.env*
+
+# Mac stuff
+*.icloud
+.DS_Store
+
+venv
+.pytest_cache
+*.asc
