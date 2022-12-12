@@ -14,11 +14,10 @@ from connectors import BaseAPIConnector
     max_retries=10,
 )
 def run_campaign(campaign):
-    if campaign.check_in_time():
-        clients = Client.objects.filter(**campaign.settings)
-        while timezone.now() < campaign.finished_at:
-            for client in clients:
-                client_messages = client.messages
-                for message in client_messages:
-                    connector = BaseAPIConnector(client=client, message=message)
-                    connector.send_request()
+    clients = Client.objects.filter(**campaign.settings)
+    while timezone.now() < campaign.finished_at:
+        for client in clients:
+            client_messages = client.messages
+            for message in client_messages:
+                connector = BaseAPIConnector(client=client, message=message)
+                connector.send_request()
