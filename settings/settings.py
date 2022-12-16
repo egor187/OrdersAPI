@@ -130,4 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #celery stuff ---------------
 BROKER_URL = 'redis://localhost:6379'
-CELERY_IMPORTS = ("core.tasks")
+CELERY_IMPORTS = ('core.tasks')
+CELERY_TASK_SERIALIZER = 'pickle'
+CELERY_ACCEPT_CONTENT = ['pickle']
