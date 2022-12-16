@@ -29,7 +29,11 @@ class Campaign(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        current_app.send_task('core.tasks.run_campaign', countdown=self.get_task_countdown())
+        current_app.send_task(
+            'core.tasks.run_campaign',
+            kwargs={'campaign_settings': self.settings, 'campaign_finished_at': self.finished_at},
+            countdown=self.get_task_countdown()
+        )
 
 
 class Message(models.Model):
