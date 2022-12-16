@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Client, Message, Campaign
+from .models import Client, Message, Campaign, Statistic
 
 
 class CampaignAdmin(admin.ModelAdmin):
@@ -9,4 +9,5 @@ class CampaignAdmin(admin.ModelAdmin):
 
 admin.site.register(Client)
 admin.site.register(Message)
+admin.site.register(Statistic)
 admin.site.register(Campaign, CampaignAdmin)
