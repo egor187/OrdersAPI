@@ -12,7 +12,7 @@ class BaseAPIConnector:
         self.client = client
         if headers:
             self.default_headers.update(headers)
-        self.default_headers['Authorization'] = f'Bearer {str(env("external_service_url"))}'
+        self.default_headers['Authorization'] = f'Bearer {str(env("external_service_token"))}'
 
     def send_request(self):
         try:
@@ -31,5 +31,5 @@ class BaseAPIConnector:
         return self.save_statistic(response, self.message)
 
     @staticmethod
-    def save_statistic(self, api_response, message):
+    def save_statistic(api_response, message):
         return Statistic.objects.create(message=message, api_response=api_response)
