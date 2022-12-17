@@ -1,4 +1,5 @@
 import requests
+from django.conf import settings
 from settings.env import env
 from core.models import Message, Client, Statistic
 
@@ -6,7 +7,7 @@ from core.models import Message, Client, Statistic
 class BaseAPIConnector:
     default_headers = {'Content-Type': 'application/json', 'Authorization': ''}
 
-    def __init__(self, client: Client, message: Message, url=str(env('external_service_url')), headers=None):
+    def __init__(self, client: Client, message: Message, url=settings.EXTERNAL_SERVICE_URL, headers=None):
         self.url = f'{url}/{message.id}'
         self.message = message
         self.client = client
