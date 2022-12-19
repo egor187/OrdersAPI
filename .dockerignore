@@ -1,0 +1,5 @@
+# Common
+CHANGELOG.md
+docker-compose.yml
+Dockerfile
+db.sqlite3

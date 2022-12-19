@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  orders_api:
+    build:
+      context: .
+    volumes:
+      - orders_api:/app/_files
+    env_file: .env
+    networks:
+      - shared_net
+    ports:
+      - "8000:8000"
+    command: > 
+      sh -c "python manage.py migrate &&
+             python manage.py createsuperuser --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  orders_api:
+
+networks:
+  shared_net:
+    driver: bridge
